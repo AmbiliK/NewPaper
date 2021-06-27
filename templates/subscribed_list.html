@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+
+{%block content%}
+<h1>Indian Express</h1>
+<form action="/create/" method="POST">
+            {% csrf_token %}
+    <button type="submit">Subscribe</button>
+</form>
+<h2>Subscribed Users</h2>
+{% for instance in object_list%}
+	<p>{{ instance.name}} - {{instance.email}}</p>
+{%endfor%}
+{%endblock content%}

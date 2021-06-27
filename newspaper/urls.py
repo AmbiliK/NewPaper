@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from users.views import create, subscribed_list
+from rest_framework.routers import SimpleRouter
+router = SimpleRouter()
+# router.register(r'subscribed_users', SubscribedUserViewSet, basename="SubscribedUser")
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('create/', create),
+    path('subscribed_list/', subscribed_list),
 ]
